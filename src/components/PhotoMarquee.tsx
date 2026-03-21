@@ -66,6 +66,9 @@ const PhotoMarquee: React.FC<PhotoMarqueeProps> = ({
             className="relative flex-shrink-0 h-[50vh] md:h-[70vh] group"
           >
             <picture>
+              {photo.webpMobile && (
+                <source media="(max-width: 768px)" srcSet={photo.webpMobile} type="image/webp" />
+              )}
               {photo.webp && <source srcSet={photo.webp} type="image/webp" />}
               <img
                 src={photo.src}
