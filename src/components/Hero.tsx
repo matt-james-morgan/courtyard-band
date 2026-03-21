@@ -28,8 +28,8 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
       </div>
       <FadeIn className="w-full flex flex-col items-center pt-16 px-4">
         <div
-          className="text-[11vw] leading-none font-medium tracking-tight transition-opacity text-white"
-          style={{ fontFamily: "'Ano', 'Jost', sans-serif" }}
+          className="text-[12vw] leading-none font-semibold text-white"
+          style={{ fontFamily: "'Ano', 'Jost', sans-serif", letterSpacing: "-0.03em" }}
         >
           COURTYARD
         </div>

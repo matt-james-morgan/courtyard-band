@@ -8,14 +8,19 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ className }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const lastScrollY = React.useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      const y = window.scrollY;
+      setIsScrolled(y > 10);
+      setIsHidden(y > 100 && y > lastScrollY.current);
+      lastScrollY.current = y;
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -39,7 +44,8 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        isHidden ? "-translate-y-full" : "translate-y-0",
         isScrolled
           ? "py-3 bg-background/95 backdrop-blur-md border-b border-border/20"
           : "py-5 bg-transparent",
