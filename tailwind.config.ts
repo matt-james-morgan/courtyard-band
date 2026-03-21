@@ -95,14 +95,13 @@ export default {
           800: "#0b2a36",  /* very dark */
           900: "#051820",  /* near-black */
         },
-        /* Accent rose — bright coral-rose */
+        /* Accent rose — the horizon glow & star in the artwork */
         rose: {
-          100: "#fde8ec",
-          200: "#fbbdca",
-          300: "#f78fa3",
-          400: "#f25e7a",  /* bright coral-rose */
-          500: "#e8284d",  /* vivid */
-          600: "#c41e3e",
+          100: "#f5dde2",
+          200: "#ebbdc6",
+          300: "#dc90a2",  /* dusty rose */
+          400: "#c96878",
+          500: "#b44558",
         },
       },
       borderRadius: {
