@@ -2,15 +2,24 @@ import {
   useGoogleSheetPublished,
   ProductionData,
 } from "@/hooks/useGoogleSheetPublished";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { CalendarDays } from "lucide-react";
+
+const formatDate = (dateStr: string) => {
+  if (!dateStr) return { month: "", day: "" };
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) {
+    // Try to parse "April 12 2025" style
+    const parts = dateStr.split(" ");
+    if (parts.length >= 2) {
+      const month = parts[0].slice(0, 3).toUpperCase();
+      const day = parts[1].replace(",", "");
+      return { month, day };
+    }
+    return { month: "", day: dateStr };
+  }
+  const month = d.toLocaleString("en-US", { month: "short" }).toUpperCase();
+  const day = String(d.getDate());
+  return { month, day };
+};
 
 const ProductionsList = () => {
   const { data, isLoading, error } = useGoogleSheetPublished({
@@ -20,189 +29,90 @@ const ProductionsList = () => {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-center">
-          <div className="text-lg text-muted-foreground">
-            Loading productions...
-          </div>
-        </div>
-      </div>
+      <section id="performances" className="container mx-auto px-4 py-24">
+        <p className="text-xs uppercase tracking-[0.3em] text-foreground/40 font-light">
+          Loading shows...
+        </p>
+      </section>
     );
   }
 
-  if (error) {
+  if (error || !data || data.length === 0) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <Card className="max-w-md">
-          <CardHeader>
-            <CardTitle className="text-destructive">Error</CardTitle>
-            <CardDescription>
-              {error instanceof Error ? error.message : "Unknown error"}
-            </CardDescription>
-          </CardHeader>
-        </Card>
-      </div>
+      <section id="performances" className="container mx-auto px-4 py-24">
+        <p className="text-xs uppercase tracking-[0.3em] text-foreground/40 font-light">
+          {error ? "Could not load shows." : "No upcoming shows."}
+        </p>
+      </section>
     );
   }
 
-  if (!data || data.length === 0) {
-    return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-center text-muted-foreground">
-          No productions found.
-        </div>
-      </div>
-    );
-  }
-
-  const production = data[0];
-  console.log(production);
   return (
-    <section id="performances" className="container mx-auto px-4 py-12">
-      <div className="flex flex-col items-start gap-8">
-        {data.length === 1 ? (
-          <Card className="w-full">
-            <div className="flex flex-col md:flex-row gap-6">
-              <div className="flex-1">
-                <CardHeader className="text-left">
-                  <div className="flex items-center justify-start gap-3 mb-2">
-                    <CalendarDays className="w-6 h-6 text-primary" />
-                    {production.nameOfProduction && (
-                      <CardTitle className="text-2xl">
-                        {production.nameOfProduction}
-                      </CardTitle>
+    <section id="performances" className="py-24 bg-background">
+      <div className="container mx-auto px-6 md:px-12">
+        <p className="text-xs uppercase tracking-[0.3em] text-foreground/60 font-light mb-16">
+          Shows
+        </p>
+
+        <div className="w-full border-t border-foreground/10">
+          {data.map((production: ProductionData, index: number) => {
+            const { month, day } = formatDate(production.date || "");
+            return (
+              <div
+                key={index}
+                className="group flex items-center gap-6 md:gap-12 py-6 border-b border-foreground/10 hover:bg-white/[0.03] transition-colors duration-200 px-2"
+              >
+                {/* Date */}
+                <div className="flex-shrink-0 w-16 text-center hidden sm:block">
+                  <div className="text-xs uppercase tracking-widest text-foreground/60 font-light leading-none mb-1">
+                    {month}
+                  </div>
+                  <div className="text-2xl font-light text-foreground leading-none">
+                    {day}
+                  </div>
+                </div>
+
+                {/* Show name + venue */}
+                <div className="flex-1 min-w-0">
+                  <div className="text-base md:text-lg font-light text-foreground truncate">
+                    {production.nameOfProduction}
+                    {production.subtitle && (
+                      <span className="text-foreground/60 ml-2 text-sm font-light">
+                        — {production.subtitle}
+                      </span>
                     )}
                   </div>
-                  {production.subtitle && (
-                    <CardDescription className="text-left">
-                      {production.subtitle}
-                    </CardDescription>
-                  )}
-                </CardHeader>
-                <CardContent className="space-y-4 text-left">
-                  {production.nameOfCharacter && (
-                    <div className="text-foreground">
-                      {production.nameOfCharacter}
-                    </div>
-                  )}
-                  {production.position && (
-                    <div className="text-foreground">{production.position}</div>
-                  )}
                   {production.location && (
-                    <div className="text-foreground">{production.location}</div>
-                  )}
-                  {(production.date || production.time) && (
-                    <div className="text-foreground">
-                      {[production.date, production.time]
-                        .filter(Boolean)
-                        .join(" ")}
+                    <div className="text-xs uppercase tracking-widest text-foreground/60 font-light mt-1">
+                      {production.location}
+                      {production.time && (
+                        <span className="ml-4">{production.time}</span>
+                      )}
                     </div>
                   )}
-                </CardContent>
-                {production.linkToSite && (
-                  <CardFooter className="justify-start">
+                </div>
+
+                {/* Ticket link */}
+                <div className="flex-shrink-0">
+                  {production.linkToSite ? (
                     <a
                       href={production.linkToSite}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-primary hover:underline font-medium"
+                      className="text-xs uppercase tracking-widest font-light border border-foreground/30 text-foreground/80 px-4 py-2 hover:bg-foreground hover:text-background transition-all duration-200"
                     >
-                      Visit Site →
+                      Tickets
                     </a>
-                  </CardFooter>
-                )}
-              </div>
-              {production.description && (
-                <div className="flex-1 md:border-l md:pl-6">
-                  <div className="p-6">
-                    <p className="text-foreground text-left leading-relaxed">
-                      {production.description}
-                    </p>
-                  </div>
+                  ) : (
+                    <span className="text-xs uppercase tracking-widest font-light text-foreground/60 px-4 py-2">
+                      Free
+                    </span>
+                  )}
                 </div>
-              )}
-            </div>
-          </Card>
-        ) : (
-          <>
-            <h2 className="text-3xl md:text-4xl font-serif mb-12 text-left">
-              Shows
-            </h2>
-            <div className="flex flex-col gap-6 w-full">
-              {data.map((production: ProductionData, index: number) => (
-                <Card
-                  key={index}
-                  className="w-full hover:shadow-lg transition-shadow"
-                >
-                  <div className="flex flex-col md:flex-row gap-6">
-                    <div className="flex-1">
-                      <CardHeader className="text-left">
-                        <div className="flex items-center justify-start gap-3 mb-2">
-                          <CalendarDays className="w-6 h-6 text-primary" />
-                          {production.nameOfProduction && (
-                            <CardTitle className="text-2xl">
-                              {production.nameOfProduction}
-                            </CardTitle>
-                          )}
-                        </div>
-                        {production.subtitle && (
-                          <CardDescription className="text-left">
-                            {production.subtitle}
-                          </CardDescription>
-                        )}
-                      </CardHeader>
-                      <CardContent className="space-y-2 text-left">
-                        {production.nameOfCharacter && (
-                          <div className="text-foreground">
-                            {production.nameOfCharacter}
-                          </div>
-                        )}
-                        {production.position && (
-                          <div className="text-foreground">
-                            {production.position}
-                          </div>
-                        )}
-                        {production.location && (
-                          <div className="text-foreground">
-                            {production.location}
-                          </div>
-                        )}
-                        {(production.date || production.time) && (
-                          <div className="text-foreground">
-                            {[production.date, production.time]
-                              .filter(Boolean)
-                              .join(" ")}
-                          </div>
-                        )}
-                      </CardContent>
-                      {production.linkToSite && (
-                        <CardFooter className="justify-start">
-                          <a
-                            href={production.linkToSite}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-primary hover:underline font-medium text-sm"
-                          >
-                            Visit Site →
-                          </a>
-                        </CardFooter>
-                      )}
-                    </div>
-                    {production.description && (
-                      <div className="flex-1 md:border-l md:pl-6">
-                        <div className="p-6">
-                          <p className="text-foreground text-left leading-relaxed">
-                            {production.description}
-                          </p>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </>
-        )}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
