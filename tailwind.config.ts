@@ -84,24 +84,24 @@ export default {
         },
         /* Courtyard palette — drawn from The Lighthouse artwork */
         orangery: {
-          50: "#eef1f6",   /* near-white sky */
-          100: "#dce4ee",  /* pale sky */
-          200: "#bfccd9",  /* soft sky */
-          300: "#9ab2c4",  /* sky-blue */
-          400: "#7496ac",  /* ocean-sky blend */
-          500: "#5a8090",  /* ocean teal — nav hover */
-          600: "#486878",  /* deeper teal */
-          700: "#375060",  /* dark teal */
-          800: "#263848",  /* very dark */
-          900: "#162030",  /* near-black */
+          50: "#e8f2f5",   /* lightest sky */
+          100: "#cce2ea",  /* pale sky */
+          200: "#a0c8d4",  /* soft teal-sky */
+          300: "#70aabc",  /* ocean-sky */
+          400: "#438ea4",  /* teal */
+          500: "#246e84",  /* deep ocean teal — nav hover */
+          600: "#1a5568",  /* darker teal */
+          700: "#123e4e",  /* dark teal */
+          800: "#0b2a36",  /* very dark */
+          900: "#051820",  /* near-black */
         },
         /* Accent rose — the horizon glow & star in the artwork */
         rose: {
           100: "#f5dde2",
           200: "#ebbdc6",
-          300: "#e09aaa",  /* dusty rose */
-          400: "#d47888",
-          500: "#c85870",
+          300: "#dc90a2",  /* dusty rose */
+          400: "#c96878",
+          500: "#b44558",
         },
       },
       borderRadius: {

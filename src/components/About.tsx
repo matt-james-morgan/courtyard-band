@@ -8,7 +8,7 @@ interface AboutProps {
 
 const About: React.FC<AboutProps> = ({ className }) => {
   return (
-    <section id="about" className={cn("py-20 bg-white", className)}>
+    <section id="about" className={cn("py-20 bg-background", className)}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
           <FadeIn>

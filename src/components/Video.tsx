@@ -5,24 +5,13 @@ interface VideoProps {
   className?: string;
 }
 
-const videos: { id: string; title: string }[] = [
-  { id: "VGwZSPz-faA", title: "11:30 (Official Music Video)" },
-  { id: "Fl4bSXrfbgY", title: "Tiny Desk Contest 2025 — Feel" },
-  { id: "XIOMyXt-Vkc", title: '11:30 (Live in Rochester)' },
-  { id: "Do5Ch8N_HYE", title: "I Forgot My Receipt At Tim Horton's (Live from the Band Crib Basement)" },
-  { id: "E2MVeoqIPK4", title: "19 (acoustic)" },
-  { id: "AD4Wjz-KpCI", title: "windows (acoustic)" },
-  { id: "iPLu-fApaps", title: "Because of Her" },
-  { id: "iWXIuqRyHPc", title: "tug of war (acoustic sesh)" },
-  { id: "27dMft-Dzwg", title: "Spinning (live at Lovin Cup)" },
-  { id: "NH9AYZJ_DL0", title: '"Colors" Cover' },
-  { id: "Ewgvbu8ytyw", title: "just the two of us" },
-  { id: "dRUqIocpn90", title: "Last Christmas" },
-];
+// Add confirmed Courtyard (Guelph) YouTube video IDs here
+// e.g. { id: "abc123", title: "The Lighthouse (Official Video)" }
+const videos: { id: string; title: string }[] = [];
 
 const Video: React.FC<VideoProps> = ({ className }) => {
   return (
-    <section id="media" className={cn("py-20 bg-gray-50", className)}>
+    <section id="media" className={cn("py-20 bg-muted", className)}>
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-3xl md:text-4xl font-serif mb-12 text-center">
           Media
@@ -33,7 +22,7 @@ const Video: React.FC<VideoProps> = ({ className }) => {
             {videos.map((video, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                className="bg-background rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
               >
                 <div
                   className="relative w-full"
@@ -59,7 +48,7 @@ const Video: React.FC<VideoProps> = ({ className }) => {
               href="https://www.youtube.com/@Courtyardtheband"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-6 py-3 border border-gray-300 rounded-md text-sm font-medium hover:bg-gray-100 transition-colors"
+              className="inline-block px-6 py-3 border border-border rounded-md text-sm font-medium hover:bg-secondary transition-colors"
             >
               Visit YouTube Channel →
             </a>

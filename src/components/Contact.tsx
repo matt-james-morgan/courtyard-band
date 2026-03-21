@@ -37,7 +37,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
   ];
 
   return (
-    <section id="contact" className={cn("py-20 bg-gray-50", className)}>
+    <section id="contact" className={cn("py-20 bg-muted", className)}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto mb-16">
           <FadeIn>
@@ -71,7 +71,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                     <p className="text-muted-foreground mb-4 text-sm">
                       {contact.description}
                     </p>
-                    <div className="mt-4 pt-4 border-t border-gray-100">
+                    <div className="mt-4 pt-4 border-t border-border">
                       <a
                         href={contact.link}
                         className="text-sm font-medium hover:underline text-gray-700"
@@ -102,7 +102,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                 <p className="text-muted-foreground mb-4 text-sm">
                   Stream Courtyard on Spotify — including "The Lighthouse" and more
                 </p>
-                <div className="mt-4 pt-4 border-t border-gray-100">
+                <div className="mt-4 pt-4 border-t border-border">
                   <a
                     href="https://open.spotify.com/artist/6mbL9LM7UnlZZmrv2UXFad"
                     target="_blank"

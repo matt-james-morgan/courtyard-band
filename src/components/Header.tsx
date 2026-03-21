@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "py-3 bg-white/90 backdrop-blur-md border-b border-gray-200/20 shadow-sm"
+          ? "py-3 bg-background/90 backdrop-blur-md border-b border-border/40 shadow-sm"
           : "py-5 bg-transparent text-white",
         className
       )}
@@ -71,7 +71,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
 
       <div
         className={cn(
-          "fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 transition-transform duration-500 ease-in-out transform md:hidden",
+          "fixed inset-0 bg-background z-40 flex flex-col pt-24 px-6 transition-transform duration-500 ease-in-out transform md:hidden",
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >

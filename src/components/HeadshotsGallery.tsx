@@ -36,7 +36,7 @@ const HeadshotsGallery: React.FC<HeadshotsGalleryProps> = ({ className }) => {
     <section
       id="headshots"
       className={cn(
-        "relative min-h-screen flex items-center justify-center bg-gray-50 py-20",
+        "relative min-h-screen flex items-center justify-center bg-muted py-20",
         className
       )}
     >

@@ -28,7 +28,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
   return (
     <footer
       className={cn(
-        "py-20 md:py-32 bg-white border-t border-gray-100",
+        "py-20 md:py-32 bg-background border-t border-border",
         className
       )}
     >
@@ -43,7 +43,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
           <div className="flex justify-center space-x-6 mb-8">
             <a
               href="mailto:courtyardtheband@gmail.com"
-              className="text-gray-600 hover:text-gray-900 transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Email"
             >
               <Mail className="w-6 h-6" />
@@ -52,7 +52,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
               href="https://www.instagram.com/courtyard_theband/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-gray-900 transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Instagram"
             >
               <Instagram className="w-6 h-6" />
@@ -61,7 +61,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
               href="https://www.facebook.com/profile.php?id=61565740834045"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-gray-900 transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Facebook"
             >
               <Facebook className="w-6 h-6" />
@@ -69,7 +69,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
           </div>
         </div>
 
-        <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <Link
               to="/"
@@ -82,25 +82,25 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
           <div className="flex space-x-6 mb-4 md:mb-0">
             <button
               onClick={() => scrollToSection("home")}
-              className="text-sm hover:text-gray-900 transition-colors"
+              className="text-sm hover:text-foreground transition-colors"
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection("about")}
-              className="text-sm hover:text-gray-900 transition-colors"
+              className="text-sm hover:text-foreground transition-colors"
             >
               About
             </button>
             <button
               onClick={() => scrollToSection("gallery")}
-              className="text-sm hover:text-gray-900 transition-colors"
+              className="text-sm hover:text-foreground transition-colors"
             >
               Gallery
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="text-sm hover:text-gray-900 transition-colors"
+              className="text-sm hover:text-foreground transition-colors"
             >
               Contact
             </button>
