@@ -15,7 +15,7 @@ import { CalendarDays } from "lucide-react";
 const ProductionsList = () => {
   const { data, isLoading, error } = useGoogleSheetPublished({
     sheetUrl:
-      "YOUR_GOOGLE_SHEET_CSV_URL_HERE",
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vRJMpt4UkyxjmQfeVYOfQtj9PrjnlIgR_lrW1V7LyqMxX98LnCsSXV3lJ1nQZoBEr_EsrgKzrFJw29W/pub?output=csv",
   });
 
   if (isLoading) {
