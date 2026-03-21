@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { GalleryItem } from "@/data/galleryData";
 
@@ -24,6 +24,33 @@ const PhotoMarquee: React.FC<PhotoMarqueeProps> = ({
   // Duplicate for seamless loop
   const items = [...photos, ...photos];
 
+  // Track which item is most in-frame on mobile (intersection observer)
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const isMobile = window.matchMedia("(hover: none)").matches;
+    if (!isMobile) return;
+
+    const observers: IntersectionObserver[] = [];
+
+    itemRefs.current.forEach((el, i) => {
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            setActiveIndex(i);
+          }
+        },
+        { threshold: 0.5 }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
   return (
     <div className={cn("overflow-hidden w-full", className)}>
       <div
@@ -33,16 +60,29 @@ const PhotoMarquee: React.FC<PhotoMarqueeProps> = ({
         }}
       >
         {items.map((photo, i) => (
-          <div key={i} className="relative flex-shrink-0 h-[70vh] group">
-            <img
-              src={photo.src}
-              alt={photo.alt}
-              className="h-full w-auto object-cover block"
-              decoding="async"
-              draggable={false}
+          <div
+            key={i}
+            ref={(el) => { itemRefs.current[i] = el; }}
+            className="relative flex-shrink-0 h-[50vh] md:h-[70vh] group"
+          >
+            <picture>
+              {photo.webp && <source srcSet={photo.webp} type="image/webp" />}
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                className="h-full w-auto object-cover block"
+                decoding="async"
+                draggable={false}
+              />
+            </picture>
+            {/* Dark overlay — lifted on hover (desktop) or when in-frame (mobile) */}
+            <div
+              className={cn(
+                "absolute inset-0 bg-black/50 transition-opacity duration-500",
+                "group-hover:opacity-0",
+                activeIndex === i && "opacity-0"
+              )}
             />
-            {/* Dark overlay — fades out on hover */}
-            <div className="absolute inset-0 bg-black/50 transition-opacity duration-500 group-hover:opacity-0" />
           </div>
         ))}
       </div>

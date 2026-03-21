@@ -15,14 +15,17 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
       )}
     >
       <div className="absolute inset-0 -z-10">
-        <img
-          src="/images/band/band-moody-2.jpg"
-          alt="Courtyard"
-          className="w-full h-full object-cover object-top"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-        />
+        <picture>
+          <source srcSet="/images/band/webp/band-moody-2.webp" type="image/webp" />
+          <img
+            src="/images/band/band-moody-2.jpg"
+            alt="Courtyard"
+            className="w-full h-full object-cover object-top"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
         {/* gradient to make text readable against the lighter ceiling */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-transparent" />
       </div>
