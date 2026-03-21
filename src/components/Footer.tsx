@@ -38,7 +38,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
             Courtyard
           </h3>
           <p className="text-muted-foreground mb-6">
-            Indie Band · Guelph, Ontario
+            Guelph, Ontario
           </p>
           <div className="flex justify-center space-x-6 mb-8">
             <a

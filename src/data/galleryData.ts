@@ -7,6 +7,11 @@ export interface GalleryItem {
 // Gallery photos — /public/images/gallery/ and /public/images/band/
 export const galleryPhotos: GalleryItem[] = [
   {
+    src: "/images/gallery/live-guitar.jpg",
+    alt: "Courtyard live",
+    description: "Live on stage",
+  },
+  {
     src: "/images/gallery/live-stage.jpeg",
     alt: "Courtyard live performance",
     description: "Courtyard performing live",
@@ -17,22 +22,42 @@ export const galleryPhotos: GalleryItem[] = [
     description: "Live on stage",
   },
   {
-    src: "/images/band/studio.jpeg",
-    alt: "Courtyard in the studio",
-    description: "Behind the scenes",
+    src: "/images/band/band-moody-2.jpg",
+    alt: "Courtyard band",
+    description: "Courtyard",
   },
   {
-    src: "/images/artwork/courtyard-ep.jpeg",
-    alt: "Courtyard EP artwork",
-    description: "Courtyard — Self-Titled EP (2024)",
+    src: "/images/band/band-couch-1.jpg",
+    alt: "Courtyard band",
+    description: "Courtyard",
+  },
+  {
+    src: "/images/band/studio.jpeg",
+    alt: "Courtyard behind the scenes",
+    description: "Behind the scenes",
   },
 ];
 
 // Band photos — /public/images/band/
 export const headshotsPhotos: GalleryItem[] = [
   {
-    src: "/images/band/courtyard-band.jpeg",
+    src: "/images/band/band-circle-smiling.jpg",
     alt: "Courtyard band",
     description: "Courtyard — Guelph, Ontario",
+  },
+  {
+    src: "/images/band/band-couch-3.jpg",
+    alt: "Courtyard band",
+    description: "Courtyard",
+  },
+  {
+    src: "/images/band/band-moody-1.jpg",
+    alt: "Courtyard band",
+    description: "Courtyard",
+  },
+  {
+    src: "/images/band/band-couch-2.jpg",
+    alt: "Courtyard band",
+    description: "Courtyard",
   },
 ];
