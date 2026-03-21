@@ -74,7 +74,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                     <div className="mt-4 pt-4 border-t border-border">
                       <a
                         href={contact.link}
-                        className="text-sm font-medium hover:underline text-gray-700"
+                        className="text-sm font-medium hover:text-accent transition-colors text-gray-700"
                         target={contact.icon === Mail ? undefined : "_blank"}
                         rel={
                           contact.icon === Mail
@@ -107,7 +107,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                     href="https://open.spotify.com/artist/6mbL9LM7UnlZZmrv2UXFad"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-medium hover:underline text-gray-700"
+                    className="text-sm font-medium hover:text-accent transition-colors text-gray-700"
                   >
                     Listen on Spotify
                   </a>

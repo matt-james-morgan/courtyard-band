@@ -89,8 +89,8 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
             to="/"
             className={({ isActive }) =>
               cn(
-                "hover:text-orangery-500 transition-colors",
-                isActive && "text-orangery-500 font-semibold"
+                "hover:text-accent transition-colors",
+                isActive && "text-accent font-semibold"
               )
             }
             onClick={() => setIsMobileMenuOpen(false)}
@@ -98,7 +98,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
             Home
           </NavLink>
           <button
-            className="text-left hover:text-orangery-500 transition-colors"
+            className="text-left hover:text-accent transition-colors"
             onClick={() => {
               scrollToSection("performances");
               setIsMobileMenuOpen(false);
@@ -107,7 +107,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
             Shows
           </button>
           <button
-            className="text-left hover:text-orangery-500 transition-colors"
+            className="text-left hover:text-accent transition-colors"
             onClick={() => {
               scrollToSection("media");
               setIsMobileMenuOpen(false);
@@ -116,7 +116,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
             Media
           </button>
           <button
-            className="text-left hover:text-orangery-500 transition-colors"
+            className="text-left hover:text-accent transition-colors"
             onClick={() => {
               scrollToSection("contact");
               setIsMobileMenuOpen(false);
@@ -137,31 +137,31 @@ interface NavLinksProps {
 const NavLinks: React.FC<NavLinksProps> = ({ scrollToSection }) => (
   <>
     <button
-      className="text-sm font-medium hover:text-orangery-500 transition-colors"
+      className="text-sm font-medium hover:text-accent transition-colors"
       onClick={() => scrollToSection("home")}
     >
       Home
     </button>
     <button
-      className="text-sm font-medium hover:text-orangery-500 transition-colors"
+      className="text-sm font-medium hover:text-accent transition-colors"
       onClick={() => scrollToSection("about")}
     >
       About
     </button>
     <button
-      className="text-sm font-medium hover:text-orangery-500 transition-colors"
+      className="text-sm font-medium hover:text-accent transition-colors"
       onClick={() => scrollToSection("performances")}
     >
       Shows
     </button>
     <button
-      className="text-sm font-medium hover:text-orangery-500 transition-colors"
+      className="text-sm font-medium hover:text-accent transition-colors"
       onClick={() => scrollToSection("media")}
     >
       Media
     </button>
     <button
-      className="text-sm font-medium hover:text-orangery-500 transition-colors"
+      className="text-sm font-medium hover:text-accent transition-colors"
       onClick={() => scrollToSection("contact")}
     >
       Contact

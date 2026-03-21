@@ -28,7 +28,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
         <div className="text-[11vw] leading-none font-medium tracking-tight transition-opacity text-white font-serif">
           Courtyard
         </div>
-        <div className="w-full max-w-4xl h-px bg-white/40 my-6"></div>
+        <div className="w-full max-w-4xl h-0.5 bg-accent my-6"></div>
         <div className="text-[4vw] leading-none text-white font-serif">
           Indie Band · Guelph, Ontario
         </div>
