@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Video from "@/components/Video";
 import Contact from "@/components/Contact";
 import StreamingLinks from "@/components/StreamingLinks";
 import Community from "@/components/Community";
@@ -48,7 +47,6 @@ const Index = () => {
       <Gallery />
       <HeadshotsGallery />
       <ProductionsList />
-      <Video />
       <StreamingLinks />
       <Contact />
 
