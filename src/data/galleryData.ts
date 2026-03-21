@@ -4,60 +4,35 @@ export interface GalleryItem {
   description: string;
 }
 
-// Gallery photos - replace with your own images in /public/gallery/
+// Gallery photos — /public/images/gallery/ and /public/images/band/
 export const galleryPhotos: GalleryItem[] = [
   {
-    src: "https://placehold.co/800x600/cccccc/999999?text=Courtyard+Live",
+    src: "/images/gallery/live-stage.jpeg",
     alt: "Courtyard live performance",
-    description: "Courtyard live at The Drake Underground, Toronto, March 2024",
+    description: "Courtyard performing live",
   },
   {
-    src: "https://placehold.co/800x600/bbbbbb/888888?text=Courtyard+Live+2",
-    alt: "Courtyard live performance",
-    description: "Courtyard live at Silence, Guelph, March 2023",
+    src: "/images/gallery/live-drums.jpeg",
+    alt: "Courtyard drummer live",
+    description: "Live on stage",
   },
   {
-    src: "https://placehold.co/800x600/aaaaaa/777777?text=Courtyard+Band",
-    alt: "Courtyard band photo",
-    description: "Courtyard — Guelph, Ontario",
-  },
-  {
-    src: "https://placehold.co/800x600/cccccc/999999?text=Courtyard+Studio",
+    src: "/images/band/studio.jpeg",
     alt: "Courtyard in the studio",
-    description: "Recording sessions, 2024",
+    description: "Behind the scenes",
   },
   {
-    src: "https://placehold.co/800x600/bbbbbb/888888?text=Courtyard+Show",
-    alt: "Courtyard show",
-    description: "Courtyard performing in Guelph",
-  },
-  {
-    src: "https://placehold.co/800x600/aaaaaa/777777?text=Courtyard+Photo",
-    alt: "Courtyard band photo",
-    description: "Courtyard, 2025",
+    src: "/images/artwork/courtyard-ep.jpeg",
+    alt: "Courtyard EP artwork",
+    description: "Courtyard — Self-Titled EP (2024)",
   },
 ];
 
-// Band photos - replace with your own images in /public/photos/
+// Band photos — /public/images/band/
 export const headshotsPhotos: GalleryItem[] = [
   {
-    src: "https://placehold.co/600x800/dddddd/aaaaaa?text=Hanna+Bennett",
-    alt: "Hanna Bennett",
-    description: "Hanna Bennett — Lead Vocals",
-  },
-  {
-    src: "https://placehold.co/600x800/cccccc/999999?text=Matt+Morgan",
-    alt: "Matt Morgan",
-    description: "Matt Morgan — Guitar",
-  },
-  {
-    src: "https://placehold.co/600x800/bbbbbb/888888?text=Simon+Pequegnat",
-    alt: "Simon Pequegnat",
-    description: "Simon Pequegnat — Guitar",
-  },
-  {
-    src: "https://placehold.co/600x800/dddddd/aaaaaa?text=Jeremy+Maldonado",
-    alt: "Jeremy Maldonado",
-    description: "Jeremy Maldonado — Bass",
+    src: "/images/band/courtyard-band.jpeg",
+    alt: "Courtyard band",
+    description: "Courtyard — Guelph, Ontario",
   },
 ];

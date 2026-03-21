@@ -16,8 +16,8 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
     >
       <div className="absolute inset-0 -z-10">
         <img
-          src="https://placehold.co/1920x1080/cccccc/999999?text=Hero+Photo"
-          alt="Artist hero photo"
+          src="/images/artwork/the-lighthouse.jpeg"
+          alt="The Lighthouse — Courtyard"
           className="w-full h-full object-cover"
           loading="eager"
           fetchPriority="high"
