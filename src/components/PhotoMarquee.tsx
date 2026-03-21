@@ -70,23 +70,28 @@ const PhotoMarquee: React.FC<PhotoMarqueeProps> = ({
     const isMobile = window.matchMedia("(hover: none)").matches;
     if (!isMobile) return;
 
-    const observers: IntersectionObserver[] = [];
+    // IntersectionObserver doesn't track CSS-animated positions — poll with
+    // getBoundingClientRect() instead to find whichever photo is closest to
+    // the horizontal center of the viewport.
+    const update = () => {
+      const center = window.innerWidth / 2;
+      let closestIndex: number | null = null;
+      let closestDist = Infinity;
+      itemRefs.current.forEach((el, i) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.right < 0 || rect.left > window.innerWidth) return;
+        const dist = Math.abs(rect.left + rect.width / 2 - center);
+        if (dist < closestDist) {
+          closestDist = dist;
+          closestIndex = i;
+        }
+      });
+      setActiveIndex(closestIndex);
+    };
 
-    itemRefs.current.forEach((el, i) => {
-      if (!el) return;
-      const obs = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-            setActiveIndex(i);
-          }
-        },
-        { threshold: 0.5 }
-      );
-      obs.observe(el);
-      observers.push(obs);
-    });
-
-    return () => observers.forEach((o) => o.disconnect());
+    const id = setInterval(update, 150);
+    return () => clearInterval(id);
   }, []);
 
   return (
