@@ -7,35 +7,28 @@ import StreamingLinks from "@/components/StreamingLinks";
 import Community from "@/components/Community";
 import Footer from "@/components/Footer";
 import Gallery from "@/components/Gallery";
-import HeadshotsGallery from "@/components/HeadshotsGallery";
 import ProductionsList from "@/components/ProductionsList";
 
 const Index = () => {
   useEffect(() => {
-    // Smooth scroll behavior for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
+    const handleClick = function (this: HTMLAnchorElement, e: Event) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href")?.substring(1);
+      if (!targetId) return;
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: "smooth",
+        });
+      }
+    };
 
-        const targetId = this.getAttribute("href")?.substring(1);
-        if (!targetId) return;
-
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80, // Account for header height
-            behavior: "smooth",
-          });
-        }
-      });
-    });
+    const anchors = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]');
+    anchors.forEach((anchor) => anchor.addEventListener("click", handleClick));
 
     return () => {
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.removeEventListener("click", function (e) {
-          // Cleanup
-        });
-      });
+      anchors.forEach((anchor) => anchor.removeEventListener("click", handleClick));
     };
   }, []);
 
@@ -45,7 +38,7 @@ const Index = () => {
       <Hero />
       <About />
       <Gallery />
-      <HeadshotsGallery />
+      {/* <HeadshotsGallery /> */}
       <ProductionsList />
       <StreamingLinks />
       <Contact />
