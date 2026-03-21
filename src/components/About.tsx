@@ -8,43 +8,43 @@ interface AboutProps {
 
 const About: React.FC<AboutProps> = ({ className }) => {
   return (
-    <section id="about" className={cn("py-20 bg-background", className)}>
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mx-auto">
+    <section id="about" className={cn("relative bg-background", className)}>
+      {/* Full-bleed photo with dark overlay */}
+      <div className="relative min-h-screen flex items-center">
+        <div className="absolute inset-0">
+          <img
+            src="/images/band/band-couch-3.jpg"
+            alt="Courtyard"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-black/65" />
+        </div>
+
+        <div className="relative z-10 container mx-auto px-8 md:px-16 py-32">
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl font-serif mb-10 text-center">
+            <p className="text-xs uppercase tracking-[0.3em] text-white/50 mb-8 font-light">
               About
-            </h2>
+            </p>
           </FadeIn>
-
           <FadeIn delay={100}>
-            <p className="text-xl md:text-2xl leading-relaxed mb-12 font-serif text-center">
-              Courtyard is a band of high school friends from Guelph, Ontario,
-              who reconnected and brought years of original music to life. Born
-              out of a long period of isolation, their sound is the result of
-              six distinct musical voices finally finding a home together.
+            <p className="text-3xl md:text-5xl font-light leading-tight text-white max-w-3xl mb-12">
+              A band of friends from Guelph, Ontario — bringing years of original
+              music to life.
             </p>
           </FadeIn>
-
           <FadeIn delay={200}>
-            <p className="text-lg leading-relaxed text-muted-foreground text-center mb-8">
-              The members — Hanna Bennett, Matt Morgan, Simon Pequegnat, Jeremy
-              Maldonado, and Isaac Grant — each bring eclectic
-              backgrounds spanning jazz, choral music, country, big brass bands,
-              progressive metal, and beat production. Courtyard describes their
-              sound as simply "genreless," letting the songs lead wherever they
-              need to go.
+            <p className="text-base md:text-lg font-light leading-relaxed text-white/70 max-w-2xl mb-6">
+              Hanna Bennett, Matt Morgan, Simon Pequegnat, Jeremy Maldonado, and
+              Isaac Grant each bring something different — jazz, choral, country,
+              progressive metal, beat production — and Courtyard is where it all
+              lands.
             </p>
           </FadeIn>
-
           <FadeIn delay={300}>
-            <p className="text-lg leading-relaxed text-muted-foreground text-center">
-              Since 2023, Courtyard has been steadily building their catalog —
-              releasing singles like "Paper Cuts," "Because of Her," and
-              "Falling (Again)," followed by their self-titled EP in 2024.
-              Their 2025 singles "The Lighthouse" and "West Coast" mark their
-              biggest releases yet. They have performed across Guelph and
-              Toronto, including a supporting set at The Drake Underground.
+            <p className="text-base md:text-lg font-light leading-relaxed text-white/70 max-w-2xl">
+              Since 2023 they've been steadily releasing music — a self-titled EP,
+              singles "The Lighthouse" and "West Coast," and shows across Guelph
+              and Toronto. Genreless by choice.
             </p>
           </FadeIn>
         </div>

@@ -36,14 +36,14 @@ const HeadshotsGallery: React.FC<HeadshotsGalleryProps> = ({ className }) => {
     <section
       id="headshots"
       className={cn(
-        "relative min-h-screen flex items-center justify-center bg-muted py-20",
+        "relative min-h-screen flex items-center justify-center bg-background py-20",
         className
       )}
     >
       <div className="w-full max-w-6xl px-4 md:px-6">
-        <h2 className="text-3xl md:text-4xl font-serif mb-12 text-center">
-          The Band
-        </h2>
+        <p className="text-xs uppercase tracking-[0.3em] text-foreground/40 mb-12 text-center font-light">
+          — The Band —
+        </p>
         <Carousel className="w-full">
           <CarouselContent>
             {headshotsPhotos.map((item, index) => (

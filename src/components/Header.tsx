@@ -41,8 +41,8 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "py-3 bg-background/90 backdrop-blur-md border-b border-border/40 shadow-sm"
-          : "py-5 bg-transparent text-white",
+          ? "py-3 bg-background/95 backdrop-blur-md border-b border-border/20"
+          : "py-5 bg-transparent",
         className
       )}
     >
@@ -98,7 +98,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
             Home
           </NavLink>
           <button
-            className="text-left hover:text-accent transition-colors"
+            className="text-left text-xs uppercase tracking-widest font-light text-foreground/60 hover:text-foreground transition-colors"
             onClick={() => {
               scrollToSection("performances");
               setIsMobileMenuOpen(false);
@@ -107,7 +107,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
             Shows
           </button>
           <button
-            className="text-left hover:text-accent transition-colors"
+            className="text-left text-xs uppercase tracking-widest font-light text-foreground/60 hover:text-foreground transition-colors"
             onClick={() => {
               scrollToSection("contact");
               setIsMobileMenuOpen(false);
@@ -128,25 +128,25 @@ interface NavLinksProps {
 const NavLinks: React.FC<NavLinksProps> = ({ scrollToSection }) => (
   <>
     <button
-      className="text-sm font-medium hover:text-accent transition-colors"
+      className="text-xs uppercase tracking-widest font-light text-foreground/60 hover:text-foreground transition-colors"
       onClick={() => scrollToSection("home")}
     >
       Home
     </button>
     <button
-      className="text-sm font-medium hover:text-accent transition-colors"
+      className="text-xs uppercase tracking-widest font-light text-foreground/60 hover:text-foreground transition-colors"
       onClick={() => scrollToSection("about")}
     >
       About
     </button>
     <button
-      className="text-sm font-medium hover:text-accent transition-colors"
+      className="text-xs uppercase tracking-widest font-light text-foreground/60 hover:text-foreground transition-colors"
       onClick={() => scrollToSection("performances")}
     >
       Shows
     </button>
     <button
-      className="text-sm font-medium hover:text-accent transition-colors"
+      className="text-xs uppercase tracking-widest font-light text-foreground/60 hover:text-foreground transition-colors"
       onClick={() => scrollToSection("contact")}
     >
       Contact

@@ -19,24 +19,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: [
-          "Calibri",
-          "Candara",
-          "Segoe",
-          "Segoe UI",
-          "Optima",
-          "Arial",
-          "sans-serif",
-        ],
-        serif: [
-          "Calibri",
-          "Candara",
-          "Segoe",
-          "Segoe UI",
-          "Optima",
-          "Arial",
-          "sans-serif",
-        ],
+        sans: ["Jost", "sans-serif"],
+        serif: ["Jost", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

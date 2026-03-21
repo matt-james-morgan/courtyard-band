@@ -1,95 +1,62 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import FadeIn from "./animations/FadeIn";
-import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Facebook, Instagram } from "lucide-react";
 
 interface ContactProps {
   className?: string;
 }
 
 const Contact: React.FC<ContactProps> = ({ className }) => {
-  const contactLinks = [
-    {
-      icon: Mail,
-      title: "Email",
-      description:
-        "For booking inquiries, collaborations, or general questions",
-      link: "mailto:courtyardtheband@gmail.com",
-      linkText: "courtyardtheband@gmail.com",
-    },
-    {
-      icon: Instagram,
-      title: "Instagram",
-      description:
-        "Follow for updates, behind-the-scenes, and new music announcements",
-      link: "https://www.instagram.com/courtyard_theband/",
-      linkText: "@courtyard_theband",
-    },
-    {
-      icon: Facebook,
-      title: "Facebook",
-      description:
-        "Connect for show announcements and updates",
-      link: "https://www.facebook.com/profile.php?id=61565740834045",
-      linkText: "Courtyard",
-    },
-  ];
-
   return (
-    <section id="contact" className={cn("py-20 bg-muted", className)}>
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mx-auto mb-16">
-          <FadeIn>
-            <h2 className="text-3xl md:text-4xl font-serif mb-8 text-center">
-              Get in Touch
-            </h2>
-          </FadeIn>
-          <FadeIn delay={100}>
-            <p className="text-lg text-center text-muted-foreground mb-12">
-              Whether you're interested in booking Courtyard, discussing
-              collaboration opportunities, or simply want to connect, reach out
-              through any of the channels below. You can also stream their music
-              on Spotify and Apple Music.
-            </p>
-          </FadeIn>
+    <section id="contact" className={cn("relative bg-background", className)}>
+      {/* Full-bleed photo background */}
+      <div className="relative min-h-[60vh] flex items-center">
+        <div className="absolute inset-0">
+          <img
+            src="/images/band/band-couch-1.jpg"
+            alt="Courtyard"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-black/70" />
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {contactLinks.map((contact, index) => {
-            const IconComponent = contact.icon;
-            return (
-              <FadeIn key={index} delay={150 + index * 50}>
-                <Card className="border-0 shadow-sm h-full hover:shadow-md transition-shadow">
-                  <CardContent className="p-8 text-center">
-                    <div className="flex justify-center mb-4">
-                      <IconComponent className="w-10 h-10 text-gray-700" />
-                    </div>
-                    <h3 className="text-xl font-medium mb-3 font-serif">
-                      {contact.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-4 text-sm">
-                      {contact.description}
-                    </p>
-                    <div className="mt-4 pt-4 border-t border-border">
-                      <a
-                        href={contact.link}
-                        className="text-sm font-medium hover:text-accent transition-colors text-gray-700"
-                        target={contact.icon === Mail ? undefined : "_blank"}
-                        rel={
-                          contact.icon === Mail
-                            ? undefined
-                            : "noopener noreferrer"
-                        }
-                      >
-                        {contact.linkText}
-                      </a>
-                    </div>
-                  </CardContent>
-                </Card>
-              </FadeIn>
-            );
-          })}
+        <div className="relative z-10 container mx-auto px-8 md:px-16 py-24">
+          <FadeIn>
+            <p className="text-xs uppercase tracking-[0.3em] text-white/40 mb-8 font-light">
+              Contact
+            </p>
+          </FadeIn>
+          <FadeIn delay={100}>
+            <p className="text-3xl md:text-4xl font-light text-white mb-12 max-w-lg">
+              Booking, collabs, or just want to say hey.
+            </p>
+          </FadeIn>
+          <FadeIn delay={200}>
+            <div className="flex flex-col sm:flex-row gap-8">
+              <a
+                href="mailto:courtyardtheband@gmail.com"
+                className="text-white/60 hover:text-white transition-colors text-sm uppercase tracking-widest font-light"
+              >
+                courtyardtheband@gmail.com
+              </a>
+              <a
+                href="https://www.instagram.com/courtyard_theband/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/60 hover:text-white transition-colors text-sm uppercase tracking-widest font-light"
+              >
+                @courtyard_theband
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=61565740834045"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/60 hover:text-white transition-colors text-sm uppercase tracking-widest font-light"
+              >
+                Facebook
+              </a>
+            </div>
+          </FadeIn>
         </div>
       </div>
     </section>

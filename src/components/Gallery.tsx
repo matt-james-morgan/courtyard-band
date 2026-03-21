@@ -35,14 +35,14 @@ const Gallery: React.FC<GalleryProps> = ({ className }) => {
     <section
       id="gallery"
       className={cn(
-        "relative min-h-screen flex items-center justify-center bg-muted py-20",
+        "relative min-h-screen flex items-center justify-center bg-background py-20",
         className
       )}
     >
       <div className="w-full max-w-6xl px-4 md:px-6">
-        <h2 className="text-3xl md:text-4xl font-serif mb-12 text-center">
-          Gallery
-        </h2>
+        <p className="text-xs uppercase tracking-[0.3em] text-foreground/40 mb-12 text-center font-light">
+          Photos
+        </p>
         <Carousel className="w-full">
           <CarouselContent>
             {galleryPhotos.map((item, index) => (
@@ -51,10 +51,10 @@ const Gallery: React.FC<GalleryProps> = ({ className }) => {
                   <img
                     src={item.src}
                     alt={item.alt}
-                    className="max-w-full max-h-[70vh] w-auto h-auto object-contain rounded-2xl shadow-lg mb-6"
+                    className="max-w-full max-h-[80vh] w-auto h-auto object-contain mb-6"
                   />
                   {item.description && (
-                    <p className="text-center text-muted-foreground max-w-2xl px-4 text-lg">
+                    <p className="text-center text-foreground/40 max-w-2xl px-4 text-sm uppercase tracking-widest font-light">
                       {item.description}
                     </p>
                   )}
