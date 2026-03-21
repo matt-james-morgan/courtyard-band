@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Video from "@/components/Video";
 import Contact from "@/components/Contact";
+import StreamingLinks from "@/components/StreamingLinks";
 import Community from "@/components/Community";
 import Footer from "@/components/Footer";
 import Gallery from "@/components/Gallery";
@@ -48,6 +49,7 @@ const Index = () => {
       <HeadshotsGallery />
       <ProductionsList />
       <Video />
+      <StreamingLinks />
       <Contact />
 
       {/* <Community /> */}

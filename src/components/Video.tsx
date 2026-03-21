@@ -45,7 +45,7 @@ const Video: React.FC<VideoProps> = ({ className }) => {
               Check out Courtyard on YouTube for the latest videos.
             </p>
             <a
-              href="https://www.youtube.com/@Courtyardtheband"
+              href="https://www.youtube.com/channel/UCWUzQc6XI24kAp96Xq7xCrQ"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-6 py-3 border border-border rounded-md text-sm font-medium hover:bg-secondary transition-colors"

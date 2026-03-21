@@ -2,7 +2,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import FadeIn from "./animations/FadeIn";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Facebook, Instagram, Music } from "lucide-react";
+import { Mail, Facebook, Instagram } from "lucide-react";
 
 interface ContactProps {
   className?: string;
@@ -90,31 +90,6 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
               </FadeIn>
             );
           })}
-          <FadeIn delay={300}>
-            <Card className="border-0 shadow-sm h-full hover:shadow-md transition-shadow">
-              <CardContent className="p-8 text-center">
-                <div className="flex justify-center mb-4">
-                  <Music className="w-10 h-10 text-gray-700" />
-                </div>
-                <h3 className="text-xl font-medium mb-3 font-serif">
-                  Spotify
-                </h3>
-                <p className="text-muted-foreground mb-4 text-sm">
-                  Stream Courtyard on Spotify — including "The Lighthouse" and more
-                </p>
-                <div className="mt-4 pt-4 border-t border-border">
-                  <a
-                    href="https://open.spotify.com/artist/6mbL9LM7UnlZZmrv2UXFad"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-medium hover:text-accent transition-colors text-gray-700"
-                  >
-                    Listen on Spotify
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-          </FadeIn>
         </div>
       </div>
     </section>
