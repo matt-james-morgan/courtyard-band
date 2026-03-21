@@ -10,9 +10,9 @@ interface PhotoMarqueeProps {
 }
 
 const speedMap = {
-  slow: "60s",
-  normal: "40s",
-  fast: "25s",
+  slow: "90s",
+  normal: "65s",
+  fast: "40s",
 };
 
 const PhotoMarquee: React.FC<PhotoMarqueeProps> = ({
@@ -27,19 +27,21 @@ const PhotoMarquee: React.FC<PhotoMarqueeProps> = ({
   return (
     <div className={cn("overflow-hidden w-full", className)}>
       <div
-        className="flex gap-4 w-max"
+        className="flex w-max"
         style={{
           animation: `marquee-${direction} ${speedMap[speed]} linear infinite`,
         }}
       >
         {items.map((photo, i) => (
-          <div key={i} className="flex-shrink-0 h-[70vh] group">
+          <div key={i} className="relative flex-shrink-0 h-[70vh] group">
             <img
               src={photo.src}
               alt={photo.alt}
-              className="h-full w-auto object-cover grayscale-0 transition-all duration-500"
+              className="h-full w-auto object-cover block"
               draggable={false}
             />
+            {/* Dark overlay — fades out on hover */}
+            <div className="absolute inset-0 bg-black/50 transition-opacity duration-500 group-hover:opacity-0" />
           </div>
         ))}
       </div>
