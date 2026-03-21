@@ -31,7 +31,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
           className="text-[11vw] leading-none font-medium tracking-tight transition-opacity text-white"
           style={{ fontFamily: "'ITC Clearface', 'Clearface', Georgia, serif" }}
         >
-          Courtyard
+          COURTYARD
         </div>
       </FadeIn>
     </section>
