@@ -13,7 +13,7 @@ const Gallery: React.FC<GalleryProps> = ({ className }) => {
       id="gallery"
       className={cn("py-20 bg-background overflow-hidden", className)}
     >
-      <p className="text-xs uppercase tracking-[0.3em] text-foreground/40 mb-12 text-center font-light">
+      <p className="text-xs uppercase tracking-[0.3em] text-foreground/40 mb-12 px-6 md:px-12 font-light">
         Photos
       </p>
       <PhotoMarquee photos={galleryPhotos} speed="normal" />

@@ -51,7 +51,7 @@ const StreamingLinks: React.FC<StreamingLinksProps> = ({ className }) => {
     <section className={cn("py-24 bg-muted", className)}>
       <div className="container mx-auto px-4 md:px-6">
         <FadeIn>
-          <p className="text-xs uppercase tracking-[0.3em] text-foreground/40 mb-12 text-center font-light">
+          <p className="text-xs uppercase tracking-[0.3em] text-foreground/40 mb-12 font-light">
             Listen
           </p>
         </FadeIn>

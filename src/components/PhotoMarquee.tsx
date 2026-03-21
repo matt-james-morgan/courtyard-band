@@ -15,16 +15,54 @@ const speedMap = {
   fast: "40s",
 };
 
+const MarqueePhoto: React.FC<{ photo: GalleryItem; isActive: boolean; refCallback: (el: HTMLDivElement | null) => void }> = ({
+  photo,
+  isActive,
+  refCallback,
+}) => {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <div
+      ref={refCallback}
+      className="relative flex-shrink-0 h-[50vh] md:h-[70vh] group"
+    >
+      {/* Spinner shown until image loads */}
+      {!loaded && (
+        <div className="absolute inset-0 flex items-center justify-center bg-foreground/5">
+          <div className="w-6 h-6 border-2 border-foreground/20 border-t-foreground/60 rounded-full animate-spin" />
+        </div>
+      )}
+      <picture>
+        {photo.webp && <source srcSet={photo.webp} type="image/webp" />}
+        <img
+          src={photo.src}
+          alt={photo.alt}
+          className={cn("h-full w-auto object-cover block transition-opacity duration-300", loaded ? "opacity-100" : "opacity-0")}
+          decoding="async"
+          draggable={false}
+          onLoad={() => setLoaded(true)}
+        />
+      </picture>
+      {/* Dark overlay — lifted on hover (desktop) or when in-frame (mobile) */}
+      <div
+        className={cn(
+          "absolute inset-0 bg-black/50 transition-opacity duration-500",
+          "group-hover:opacity-0",
+          isActive && "opacity-0"
+        )}
+      />
+    </div>
+  );
+};
+
 const PhotoMarquee: React.FC<PhotoMarqueeProps> = ({
   photos,
   className,
   direction = "left",
   speed = "normal",
 }) => {
-  // Duplicate for seamless loop
   const items = [...photos, ...photos];
-
-  // Track which item is most in-frame on mobile (intersection observer)
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -55,38 +93,15 @@ const PhotoMarquee: React.FC<PhotoMarqueeProps> = ({
     <div className={cn("overflow-hidden w-full", className)}>
       <div
         className="flex w-max"
-        style={{
-          animation: `marquee-${direction} ${speedMap[speed]} linear infinite`,
-        }}
+        style={{ animation: `marquee-${direction} ${speedMap[speed]} linear infinite` }}
       >
         {items.map((photo, i) => (
-          <div
+          <MarqueePhoto
             key={i}
-            ref={(el) => { itemRefs.current[i] = el; }}
-            className="relative flex-shrink-0 h-[50vh] md:h-[70vh] group"
-          >
-            <picture>
-              {photo.webpMobile && (
-                <source media="(max-width: 768px)" srcSet={photo.webpMobile} type="image/webp" />
-              )}
-              {photo.webp && <source srcSet={photo.webp} type="image/webp" />}
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                className="h-full w-auto object-cover block"
-                decoding="async"
-                draggable={false}
-              />
-            </picture>
-            {/* Dark overlay — lifted on hover (desktop) or when in-frame (mobile) */}
-            <div
-              className={cn(
-                "absolute inset-0 bg-black/50 transition-opacity duration-500",
-                "group-hover:opacity-0",
-                activeIndex === i && "opacity-0"
-              )}
-            />
-          </div>
+            photo={photo}
+            isActive={activeIndex === i}
+            refCallback={(el) => { itemRefs.current[i] = el; }}
+          />
         ))}
       </div>
     </div>

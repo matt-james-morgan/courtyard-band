@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
         isHidden ? "-translate-y-full" : "translate-y-0",
         isScrolled
           ? "py-3 bg-background/95 backdrop-blur-md border-b border-border/20"
-          : "py-5 bg-transparent",
+          : "py-5 bg-transparent border-b border-transparent",
         className
       )}
     >
@@ -77,9 +77,11 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
 
       <div
         className={cn(
-          "fixed inset-0 bg-background z-40 flex flex-col pt-24 px-6 transition-transform duration-500 ease-in-out transform md:hidden",
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          "fixed inset-0 z-40 flex flex-col pt-24 px-6 md:hidden",
+          "transition-[transform,opacity] duration-500 ease-in-out",
+          isMobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         )}
+        style={{ backgroundColor: "hsl(var(--background))" }}
       >
         <button
           className="absolute top-5 right-5 p-2"
