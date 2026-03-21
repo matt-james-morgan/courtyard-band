@@ -4,33 +4,34 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 20 14.3% 4.1%;
+    /* Courtyard palette — drawn from The Lighthouse artwork */
+    --background: 210 25% 97%;       /* near-white with sky tint */
+    --foreground: 215 20% 15%;       /* deep slate */
 
-    --card: 0 0% 100%;
-    --card-foreground: 20 14.3% 4.1%;
+    --card: 210 25% 97%;
+    --card-foreground: 215 20% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 20 14.3% 4.1%;
+    --popover: 210 25% 97%;
+    --popover-foreground: 215 20% 15%;
 
-    --primary: 220 14% 40%;
-    --primary-foreground: 60 9.1% 97.8%;
+    --primary: 185 25% 38%;          /* ocean teal */
+    --primary-foreground: 210 25% 97%;
 
-    --secondary: 60 4.8% 95.9%;
-    --secondary-foreground: 24 9.8% 10%;
+    --secondary: 210 18% 90%;        /* soft sky gray */
+    --secondary-foreground: 215 20% 15%;
 
-    --muted: 60 4.8% 95.9%;
-    --muted-foreground: 25 5.3% 44.7%;
+    --muted: 210 18% 92%;            /* light sky */
+    --muted-foreground: 210 12% 46%; /* mid-gray */
 
-    --accent: 60 4.8% 95.9%;
-    --accent-foreground: 24 9.8% 10%;
+    --accent: 350 25% 72%;           /* dusty rose — the horizon glow */
+    --accent-foreground: 215 20% 15%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 60 9.1% 97.8%;
+    --destructive-foreground: 210 25% 97%;
 
-    --border: 20 5.9% 90%;
-    --input: 20 5.9% 90%;
-    --ring: 220 14% 40%;
+    --border: 210 15% 86%;
+    --input: 210 15% 86%;
+    --ring: 185 25% 38%;             /* ocean teal */
 
     --radius: 0.5rem;
 

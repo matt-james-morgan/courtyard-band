@@ -29,7 +29,7 @@ const About: React.FC<AboutProps> = ({ className }) => {
           <FadeIn delay={200}>
             <p className="text-lg leading-relaxed text-muted-foreground text-center mb-8">
               The members — Hanna Bennett, Matt Morgan, Simon Pequegnat, Jeremy
-              Maldonado, Isaac Grant, and Oli Guselle — each bring eclectic
+              Maldonado, and Isaac Grant — each bring eclectic
               backgrounds spanning jazz, choral music, country, big brass bands,
               progressive metal, and beat production. Courtyard describes their
               sound as simply "genreless," letting the songs lead wherever they

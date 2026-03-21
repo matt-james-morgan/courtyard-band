@@ -5,9 +5,20 @@ interface VideoProps {
   className?: string;
 }
 
-// Add YouTube video IDs here as Courtyard releases video content
-// e.g. { id: "dQw4w9WgXcQ", title: "The Lighthouse (Official Video)" }
-const videos: { id: string; title: string }[] = [];
+const videos: { id: string; title: string }[] = [
+  { id: "VGwZSPz-faA", title: "11:30 (Official Music Video)" },
+  { id: "Fl4bSXrfbgY", title: "Tiny Desk Contest 2025 — Feel" },
+  { id: "XIOMyXt-Vkc", title: '11:30 (Live in Rochester)' },
+  { id: "Do5Ch8N_HYE", title: "I Forgot My Receipt At Tim Horton's (Live from the Band Crib Basement)" },
+  { id: "E2MVeoqIPK4", title: "19 (acoustic)" },
+  { id: "AD4Wjz-KpCI", title: "windows (acoustic)" },
+  { id: "iPLu-fApaps", title: "Because of Her" },
+  { id: "iWXIuqRyHPc", title: "tug of war (acoustic sesh)" },
+  { id: "27dMft-Dzwg", title: "Spinning (live at Lovin Cup)" },
+  { id: "NH9AYZJ_DL0", title: '"Colors" Cover' },
+  { id: "Ewgvbu8ytyw", title: "just the two of us" },
+  { id: "dRUqIocpn90", title: "Last Christmas" },
+];
 
 const Video: React.FC<VideoProps> = ({ className }) => {
   return (
