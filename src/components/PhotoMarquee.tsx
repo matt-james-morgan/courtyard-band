@@ -38,7 +38,6 @@ const PhotoMarquee: React.FC<PhotoMarqueeProps> = ({
               src={photo.src}
               alt={photo.alt}
               className="h-full w-auto object-cover block"
-              loading="lazy"
               decoding="async"
               draggable={false}
             />
