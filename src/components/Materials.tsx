@@ -11,9 +11,6 @@ const photos = [
   { src: "/images/band/band-moody-1.jpg", label: "Full Band — Moody", filename: "courtyard-band-2.jpg" },
   { src: "/images/band/band-blue-room.jpg", label: "Full Band — Blue Room", filename: "courtyard-band-3.jpg" },
   { src: "/images/band/band-circle-smiling.jpg", label: "Full Band — Candid", filename: "courtyard-band-4.jpg" },
-  { src: "/images/band/portrait-bw-1.jpg", label: "Portrait B&W — 1", filename: "courtyard-portrait-1.jpg" },
-  { src: "/images/band/portrait-bw-2.jpg", label: "Portrait B&W — 2", filename: "courtyard-portrait-2.jpg" },
-  { src: "/images/band/portrait-bw-3.jpg", label: "Portrait B&W — 3", filename: "courtyard-portrait-3.jpg" },
 ];
 
 const Materials: React.FC<MaterialsProps> = ({ className }) => {
