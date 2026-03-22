@@ -32,7 +32,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
             </p>
           </FadeIn>
           <FadeIn delay={200}>
-            <div className="flex flex-col sm:flex-row gap-8">
+            <div className="flex flex-col sm:flex-row gap-8 mb-12">
               <a
                 href="mailto:courtyardtheband@gmail.com"
                 className="text-white/60 hover:text-white transition-colors text-sm uppercase tracking-widest font-light"
@@ -56,6 +56,16 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                 Facebook
               </a>
             </div>
+          </FadeIn>
+          <FadeIn delay={300}>
+            <a
+              href="/stage-plot.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-xs uppercase tracking-widest font-light border border-white/30 text-white/60 hover:text-white hover:border-white/60 px-6 py-3 transition-all duration-200"
+            >
+              Stage Plot
+            </a>
           </FadeIn>
         </div>
       </div>
