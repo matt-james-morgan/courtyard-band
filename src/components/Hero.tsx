@@ -16,7 +16,9 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
     >
       <div className="absolute inset-0 -z-10">
         <picture>
-          <source srcSet="/images/band/webp/band-moody-2.webp" type="image/webp" />
+          {/* Mobile: 800px WebP — Desktop: full 3130px WebP */}
+          <source media="(max-width: 768px)" srcSet="/images/band/webp/mobile/band-moody-2.webp" type="image/webp" />
+          <source srcSet="/images/band/webp/band-moody-2-hq.webp" type="image/webp" />
           <img
             src="/images/band/band-moody-2.jpg"
             alt="Courtyard"
