@@ -174,7 +174,25 @@
       color: rgba(237,237,237,0.2);
     }
 
+    .save-btn {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      color: rgba(237,237,237,0.6);
+      background: transparent;
+      border: 1px solid var(--border);
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-bottom: 48px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .save-btn:hover { color: var(--fg); border-color: rgba(237,237,237,0.4); }
+
     @media print {
+      .save-btn { display: none; }
       a.download-overlay { display: none; }
       .photo-card img { opacity: 1 !important; }
     }
@@ -182,6 +200,7 @@
 </head>
 <body>
 
+  <button class="save-btn" onclick="window.print()">↓ Save as PDF</button>
   <p class="label">Press Kit — Courtyard</p>
   <h1>COURTYARD</h1>
 
