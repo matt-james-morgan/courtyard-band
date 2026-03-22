@@ -37,6 +37,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
     { label: "Home", action: () => scrollToSection("home") },
     { label: "About", action: () => scrollToSection("about") },
     { label: "Shows", action: () => scrollToSection("performances") },
+    { label: "Materials", action: () => scrollToSection("materials") },
     { label: "Contact", action: () => scrollToSection("contact") },
   ];
 

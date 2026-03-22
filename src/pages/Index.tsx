@@ -3,8 +3,8 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
+import Materials from "@/components/Materials";
 import StreamingLinks from "@/components/StreamingLinks";
-import Community from "@/components/Community";
 import Footer from "@/components/Footer";
 import Gallery from "@/components/Gallery";
 import ProductionsList from "@/components/ProductionsList";
@@ -41,6 +41,7 @@ const Index = () => {
       {/* <HeadshotsGallery /> */}
       <ProductionsList />
       <StreamingLinks />
+      <Materials />
       <Contact />
 
       {/* <Community /> */}
