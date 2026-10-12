@@ -13,8 +13,9 @@ const About: React.FC<AboutProps> = ({ className }) => {
       <div className="relative min-h-screen flex items-center">
         <div className="absolute inset-0">
           <img
+            loading="lazy"
             src="/images/band/band-couch-3.jpg"
-            alt="Courtyard"
+            alt="The members of Courtyard together on a couch"
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/65" />

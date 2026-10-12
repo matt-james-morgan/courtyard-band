@@ -19,7 +19,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
           <source srcSet="/images/band/webp/band-moody-2-hq.webp" type="image/webp" />
           <img
             src="/images/band/band-moody-2.jpg"
-            alt="Courtyard"
+            alt="Courtyard, indie band from Guelph, Ontario"
             className="w-full h-full object-cover object-top"
             loading="eager"
             fetchPriority="high"
@@ -30,12 +30,12 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-transparent" />
       </div>
       <FadeIn className="w-full flex flex-col items-center pt-16 px-4">
-        <div
+        <h1
           className="text-[12vw] leading-none font-semibold text-white"
           style={{ fontFamily: "'Ano', 'Jost', sans-serif", letterSpacing: "-0.03em" }}
         >
           COURTYARD
-        </div>
+        </h1>
       </FadeIn>
     </section>
   );

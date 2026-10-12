@@ -13,8 +13,9 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
       <div className="relative min-h-[60vh] flex items-center">
         <div className="absolute inset-0">
           <img
+            loading="lazy"
             src="/images/band/band-couch-1.jpg"
-            alt="Courtyard"
+            alt="Courtyard band photo"
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/70" />

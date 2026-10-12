@@ -36,6 +36,7 @@ const MarqueePhoto: React.FC<{ photo: GalleryItem; isActive: boolean; refCallbac
       <picture>
         {photo.webp && <source srcSet={photo.webp} type="image/webp" />}
         <img
+          loading="lazy"
           src={photo.src}
           alt={photo.alt}
           className={cn("h-full w-auto object-cover block transition-opacity duration-300", loaded ? "opacity-100" : "opacity-0")}
