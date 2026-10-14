@@ -16,12 +16,8 @@ const Index = () => {
       const targetId = this.getAttribute("href")?.substring(1);
       if (!targetId) return;
       const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 80,
-          behavior: "smooth",
-        });
-      }
+      // scroll-padding-top in index.css keeps the section clear of the header
+      targetElement?.scrollIntoView({ behavior: "smooth" });
     };
 
     const anchors = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]');

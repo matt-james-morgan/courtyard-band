@@ -10,7 +10,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
   return (
     <section
       className={cn(
-        "relative min-h-screen flex items-start overflow-hidden justify-center",
+        "relative min-h-svh flex items-start overflow-hidden justify-center",
         className
       )}
     >

@@ -198,3 +198,32 @@ html.dark ::-webkit-scrollbar-thumb {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* ── Mobile-first foundations ── */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    /* Anchor jumps land below the fixed header */
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    /* Safety net: nothing should ever cause sideways scrolling on phones */
+    overflow-x: clip;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -17,27 +17,27 @@ const Materials: React.FC<MaterialsProps> = ({ className }) => {
   const [hoveredPhoto, setHoveredPhoto] = useState<number | null>(null);
 
   return (
-    <section id="materials" className={cn("relative bg-background py-24", className)}>
-      <div className="container mx-auto px-8 md:px-16">
+    <section id="materials" className={cn("relative bg-background py-20 md:py-24", className)}>
+      <div className="container mx-auto px-5 sm:px-8 md:px-16">
         <FadeIn>
           <p className="text-xs uppercase tracking-[0.3em] text-foreground/40 mb-8 font-light">
             Materials
           </p>
         </FadeIn>
         <FadeIn delay={100}>
-          <p className="text-3xl md:text-4xl font-light text-foreground mb-12 max-w-lg">
+          <p className="text-2xl sm:text-3xl md:text-4xl font-light text-foreground mb-8 md:mb-12 max-w-lg">
             Everything you need to book or promote a show.
           </p>
         </FadeIn>
 
         {/* Documents */}
         <FadeIn delay={150}>
-          <div className="flex flex-wrap gap-4 mb-20">
+          <div className="flex flex-wrap gap-3 sm:gap-4 mb-14 md:mb-20">
             <a
               href="/press-kit.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block text-xs uppercase tracking-widest font-light border border-foreground/30 text-foreground/60 hover:text-foreground hover:border-foreground/60 px-6 py-3 transition-all duration-200"
+              className="inline-flex min-h-[44px] items-center text-xs uppercase tracking-widest font-light border border-foreground/30 text-foreground/60 hover:text-foreground hover:border-foreground/60 px-6 py-3 transition-all duration-200"
             >
               Press Kit
             </a>
@@ -45,7 +45,7 @@ const Materials: React.FC<MaterialsProps> = ({ className }) => {
               href="/stage-plot.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block text-xs uppercase tracking-widest font-light border border-foreground/30 text-foreground/60 hover:text-foreground hover:border-foreground/60 px-6 py-3 transition-all duration-200"
+              className="inline-flex min-h-[44px] items-center text-xs uppercase tracking-widest font-light border border-foreground/30 text-foreground/60 hover:text-foreground hover:border-foreground/60 px-6 py-3 transition-all duration-200"
             >
               Stage Plot
             </a>
@@ -85,8 +85,9 @@ const Materials: React.FC<MaterialsProps> = ({ className }) => {
                     ↓ Download
                   </span>
                 </a>
-                <p className="mt-2 text-[10px] uppercase tracking-[0.15em] font-light text-foreground/40">
-                  {photo.label}
+                {/* Hover reveal doesn't exist on phones, so the caption carries the download hint */}
+                <p className="mt-2 text-xs uppercase tracking-[0.15em] font-light text-foreground/50">
+                  <span className="md:hidden">↓ </span>{photo.label}
                 </p>
               </div>
             ))}

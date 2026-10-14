@@ -49,8 +49,8 @@ const ProductionsList = () => {
 
   return (
     <section id="performances" className="py-24 bg-background">
-      <div className="container mx-auto px-6 md:px-12">
-        <p className="text-xs uppercase tracking-[0.3em] text-foreground/60 font-light mb-16">
+      <div className="container mx-auto px-5 md:px-12">
+        <p className="text-xs uppercase tracking-[0.3em] text-foreground/60 font-light mb-10 md:mb-16">
           Shows
         </p>
 
@@ -60,25 +60,26 @@ const ProductionsList = () => {
             return (
               <div
                 key={index}
-                className="group flex items-center gap-6 md:gap-12 py-6 border-b border-foreground/10 hover:bg-white/[0.03] transition-colors duration-200 px-2"
+                className="group flex items-center gap-4 sm:gap-6 md:gap-12 py-5 md:py-6 border-b border-foreground/10 hover:bg-white/[0.03] transition-colors duration-200 px-2"
               >
                 {/* Date */}
-                <div className="flex-shrink-0 w-16 text-center hidden sm:block">
+                <div className="flex-shrink-0 w-11 sm:w-16 text-center">
                   <div className="text-xs uppercase tracking-widest text-foreground/60 font-light leading-none mb-1">
                     {month}
                   </div>
-                  <div className="text-2xl font-light text-foreground leading-none">
+                  <div className="text-xl sm:text-2xl font-light text-foreground leading-none">
                     {day}
                   </div>
                 </div>
 
                 {/* Show name + venue */}
                 <div className="flex-1 min-w-0">
-                  <div className="text-base md:text-lg font-light text-foreground truncate">
+                  <div className="text-base md:text-lg font-light text-foreground leading-snug sm:truncate">
                     {production.nameOfProduction}
                     {production.subtitle && (
-                      <span className="text-foreground/60 ml-2 text-sm font-light">
-                        — {production.subtitle}
+                      <span className="block sm:inline text-foreground/60 sm:ml-2 text-sm font-light">
+                        <span className="hidden sm:inline">— </span>
+                        {production.subtitle}
                       </span>
                     )}
                   </div>
@@ -86,7 +87,7 @@ const ProductionsList = () => {
                     <div className="text-xs uppercase tracking-widest text-foreground/60 font-light mt-1">
                       {production.location}
                       {production.time && (
-                        <span className="ml-4">{production.time}</span>
+                        <span className="block sm:inline sm:ml-4">{production.time}</span>
                       )}
                     </div>
                   )}
@@ -99,12 +100,12 @@ const ProductionsList = () => {
                       href={production.linkToSite}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs uppercase tracking-widest font-light border border-foreground/30 text-foreground/80 px-4 py-2 hover:bg-foreground hover:text-background transition-all duration-200"
+                      className="inline-flex items-center min-h-[44px] text-xs uppercase tracking-widest font-light border border-foreground/30 text-foreground/80 px-3 sm:px-4 hover:bg-foreground hover:text-background transition-all duration-200"
                     >
                       Tickets
                     </a>
                   ) : (
-                    <span className="text-xs uppercase tracking-widest font-light text-foreground/60 px-4 py-2">
+                    <span className="text-xs uppercase tracking-widest font-light text-foreground/60 px-3 sm:px-4 py-2">
                       Free
                     </span>
                   )}

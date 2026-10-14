@@ -10,7 +10,7 @@ const About: React.FC<AboutProps> = ({ className }) => {
   return (
     <section id="about" className={cn("relative bg-background", className)}>
       {/* Full-bleed photo with dark overlay */}
-      <div className="relative min-h-screen flex items-center">
+      <div className="relative md:min-h-screen flex items-center">
         <div className="absolute inset-0">
           <img
             loading="lazy"
@@ -21,14 +21,14 @@ const About: React.FC<AboutProps> = ({ className }) => {
           <div className="absolute inset-0 bg-black/65" />
         </div>
 
-        <div className="relative z-10 container mx-auto px-8 md:px-16 py-32">
+        <div className="relative z-10 container mx-auto px-5 sm:px-8 md:px-16 py-20 md:py-32">
           <FadeIn>
-            <p className="text-xs uppercase tracking-[0.3em] text-white/50 mb-8 font-light">
+            <p className="text-xs uppercase tracking-[0.3em] text-white/50 mb-6 md:mb-8 font-light">
               About
             </p>
           </FadeIn>
           <FadeIn delay={100}>
-            <p className="text-3xl md:text-5xl font-light leading-tight text-white max-w-3xl mb-12">
+            <p className="text-2xl sm:text-3xl md:text-5xl font-light leading-tight text-white max-w-3xl mb-8 md:mb-12">
               A band of friends from Guelph, Ontario — bringing years of original
               music to life.
             </p>
